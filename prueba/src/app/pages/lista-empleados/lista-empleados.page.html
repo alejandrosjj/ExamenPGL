@@ -1,0 +1,79 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="title">Empleados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+ 
+
+
+<h2 class="title">En nómina </h2>
+<hr size="2px" color="black" />
+<ion-list>
+  <ion-card *ngFor="let e of listEmpleados" class="card">
+    <ion-card-header>
+      <ion-card-title>Nombre: {{e.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row class="ion-align-items.center">
+        <ion-col size="8">
+          <ion-label color="secondary">
+            <b>Apellidos: {{e.apellido1}} {{e.apellido2}}</b>
+          </ion-label>
+        </ion-col>
+        
+        <ion-col size="8">
+          <ion-label>
+            <ion-label>
+              <b>Sueldo: {{e.sueldo}}</b>
+              </ion-label>
+            </ion-label>    
+        </ion-col>
+
+        <ion-col size="8">
+          <ion-label>
+            <ion-label>
+              <b>Telefono: {{e.telefono}}</b>
+              </ion-label>
+            </ion-label>
+            </ion-col>
+
+            <ion-col size="8">
+              <ion-label>
+                <ion-label>
+                  <b>Rango: {{e.rango}}</b>
+                  </ion-label>
+                </ion-label>
+                </ion-col>
+       
+        <ion-col size="4" class="ion-text-right">
+            <ion-button fill="clear" routerLink="/editEmpleado/{{e.id}}">
+              <ion-icon name="refresh-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" (click)="deleteEmpleado(e.id!)" color="danger">
+              <ion-icon name="person-remove-outline"></ion-icon>
+            </ion-button>
+            </ion-col>
+      </ion-row>
+    </ion-card-content>
+   
+  </ion-card>
+  
+
+</ion-list>
+
+
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" mode="ios">
+  <ion-fab-button>
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button routerLink="/add-product"><ion-icon name="bag-add-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button routerLink="/add-empleado"><ion-icon name="person-add-outline"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

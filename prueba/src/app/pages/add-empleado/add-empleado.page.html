@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">{{operacion}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="agregarEmpleado()">
+    <ion-list>
+      <ion-item>
+        <ion-input formControlName="nameNameControl" required="true" placeholder="Nombre del empleado"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="apellido1Control" required="true" type="text" placeholder="Primer Apellido"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        
+        <ion-input
+          formControlName="apellido2Control"
+          required="true"
+          type="text"
+          placeholder="Segundo apellido"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="rangoControl" required="true" type="text" placeholder="Rango"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        
+        <ion-input
+          formControlName="sueldoControl"
+          required="true"
+          type="number"
+          placeholder="Sueldo"
+        ></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-input formControlName="telefonoControl" required="true" type="number" placeholder="Telefono"></ion-input>
+      </ion-item>
+      
+
+      <ion-item>
+        <ion-button [disabled]="!formGroup.valid" type="submit">
+          <ion-icon name="add-outline"></ion-icon>
+          {{operacion}} empleado
+        </ion-button>
+        <ion-button routerLink="/tab-inicial/lista-empleados">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+                  Volver
+                </ion-button>
+      </ion-item>
+      
+    </ion-list>
+  </form>
+</ion-content>

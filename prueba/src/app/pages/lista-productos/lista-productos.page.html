@@ -1,0 +1,71 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+<h2 class="ion-text-center">Inventario</h2>
+<hr size="2px" color="black" />
+<ion-list *ngIf="listProducts.length >0">
+  <ion-card *ngFor="let p of listProducts">
+    <ion-card-header>
+      <ion-card-title>{{p.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row class="ion-align-items.center">
+        <ion-col size="8">
+          <ion-label color="secondary">
+            <b>Precio: {{p.price | currency: 'EUR'}}</b>
+          </ion-label>
+        </ion-col>
+        
+        <ion-col size="8">
+          <ion-label>
+            <ion-label>
+              <b>Stock: {{p.stock}}</b>
+              </ion-label>
+            </ion-label>    
+        </ion-col>
+
+        <ion-col size="8">
+          <ion-label>
+            <ion-label>
+              <b>Descripción: {{p.description}}</b>
+              </ion-label>
+            </ion-label>
+            </ion-col>
+       
+        <ion-col size="4" class="ion-text-right">
+            <ion-button fill="clear" routerLink="/edit/{{p.id}}">
+              <ion-icon name="refresh-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" (click)="deleteProduct(p.id!)" color="danger">
+              <ion-icon name="bag-remove-outline"></ion-icon>
+            </ion-button>
+            </ion-col>
+      </ion-row>
+    </ion-card-content>
+   
+  </ion-card>
+  
+
+</ion-list>
+
+<h5 *ngIf="listProducts.length ==0" class="ion-text-center"> No hay productos para mostrar</h5>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button routerLink="/add-empleado" color="success"><ion-icon name="person-add-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button routerLink="/add-product" color ="success"><ion-icon name="bag-add-outline"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

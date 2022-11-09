@@ -1,0 +1,56 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">{{operacion}} Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <form [formGroup]="formGroup" (ngSubmit)="agregarProducto()">
+    <ion-list>
+      <ion-item>
+        <ion-input formControlName="nameNameControl" required="true" placeholder="Nombre del producto"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="descriptionControl" required="true" type="text" placeholder="Descripcion del producto"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        
+        <ion-input
+          formControlName="priceControl"
+          required="true"
+          type="number"
+          placeholder="Precio del producto"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        
+        <ion-input
+          formControlName="stockControl"
+          required="true"
+          type="number"
+          placeholder="Stock del producto"
+        ></ion-input>
+      </ion-item>
+      
+
+      <ion-item>
+        <ion-button [disabled]="!formGroup.valid" type="submit">
+          <ion-icon name="add-outline"></ion-icon>
+          Agregar Producto
+        </ion-button>
+        <ion-button routerLink="/tab-inicial/lista-productos">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+                  Volver
+                </ion-button>
+      </ion-item>
+      
+    </ion-list>
+  </form>
+
+ 
+  
+</ion-content>
